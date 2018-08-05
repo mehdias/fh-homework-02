@@ -31,7 +31,7 @@
     <td><%= book.catagory %></td>
     <td><%= book.year %></td>
     <td><%= link_to 'Show', book_path(book) %></td>
-    <td><%= link_to 'Edit', '#' %> </td>
+    <td><%= link_to 'Edit', edit_book_path(:id) %> </td>
     <td><%= link_to 'Destroy', '#', method: :delete, data: {confirm: 'Are you sure you want to delete?'} %> </td>
   </tr>
 

@@ -21,22 +21,25 @@ class BooksController < ApplicationController
     end
 
     def create
+      @book = Book.new(book_params)
 
-      @book = Book.create (book_params)
-      redirect_to root_path
-
+      if @book.save
+        redirect_to root_path, notice: 'Book successfully created.', status: 201
+      else
+        render :new, alert: 'Book could not be created.', status: 422
+      end
     end
 
     def update
-      @book = Book.find (params[:id])
+      @book = Book.find(params[:id])
       @book.update_attributes(book_params)
       redirect_to root_path
 
     end
     def destroy
+      @book=Book.find(params[:id])
       @book.destroy
       redirect_to root_path
-
     end
 
     private

@@ -1,18 +1,35 @@
 <%= form_for @book do |f| %>
-
-
   <%= f.label :title %>
   <%= f.text_field :title %>
+
+  <br /><br />
+
   <%= f.label :author %>
   <%= f.text_field :author %>
+
+  <br /><br />
+
   <%= f.label :genre %>
   <%= f.text_field :genre %>
 
-  <%= f.select :classification, ['Philosophy', 'History', 'Social Sciences', 'Fine Arts', 'language and literature', 'medicine', 'technology', 'Education'], prompt: 'Select One' %>
-  <%= f.select :catagory, ['Fiction', 'NonFiction'], prompt: 'Select One'%>
-  <%= f.label :year %>
-  <%= f.date_field :year %>
-  <%= f.submit 'Create' %>
-<%= link_to 'Back', root_path %>
+  <br /><br />
 
+  <%= f.label :classification %>
+  <%= f.select :classification, ['Philosophy', 'History', 'Social Sciences', 'Fine Arts', 'language and literature', 'medicine', 'technology', 'Education'], prompt: 'Select One' %>
+
+  <br /><br />
+
+  <%= f.label :catagory %>
+  <%= f.select :catagory, ['Fiction', 'NonFiction'], prompt: 'Select One'%>
+
+  <br /><br />
+
+  <%= f.label :year %>
+  <%= f.select :year, (2000..2018).to_a, prompt: 'Select Year' %>
+
+  <br /><br />
+
+  <%= f.submit 'Create' %>
 <% end %>
+
+<%= link_to 'Back', root_path %>

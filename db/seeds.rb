@@ -6,11 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-50.times do
-Book.create(
-  title: Faker::Book.title,
-  author: Faker::Book.author,
-  genre: Faker::Book.genre
+Book.destroy_all
 
-)
+50.times do
+  Book.create(
+    title: Faker::Book.title,
+    author: Faker::Book.author,
+    genre: Faker::Book.genre,
+    classification: Book.classifications.sample,
+    catagory: ['Fiction', 'NonFication'].sample,
+    year: rand(1900..2018))
 end
