@@ -6,15 +6,15 @@
     <%= submit_tag "Search" %>
   </p>
 <% end %>
-
+<%= link_to 'Add a New Book', new_book_path %>
 <table>
   <thead>
     <tr>
       <th>Title</th>
-      <th>Author</th>
+      <th>sub_title</th>
       <th>Genre</th>
       <th>Classification</th>
-      <th>Catagory</th>
+      <th>catagory</th>
       <th>Year</th>
     </tr>
   </thead>
@@ -24,19 +24,16 @@
     <tr>
 
 
-    <td><%= book.title %></td>
-    <td><%= book.author %></td>
+    <td><%= link_to book.title, book_path(book) %></td>
+    <td><%= book.sub_title %></td>
     <td><%= book.genre %></td>
     <td><%= book.classification %></td>
     <td><%= book.catagory %></td>
-    <td><%= book.year %></td>
-    <td><%= link_to 'Show', book_path(book) %></td>
-    <td><%= link_to 'Edit', edit_book_path(:id) %> </td>
-    <td><%= link_to 'Destroy', '#', method: :delete, data: {confirm: 'Are you sure you want to delete?'} %> </td>
+    <td><%= book.year %></td> &nbsp; &nbsp;&nbsp;
+    <td><%= link_to 'Destroy', book_path(book), method: :delete, data: {confirm: 'Are you sure you want to delete?'} %> </td>
   </tr>
 
 <% end %>
 </tbody>
 </table>
 <br/>
-<%= link_to 'Add a New Book', new_book_path %>

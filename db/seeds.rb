@@ -11,9 +11,8 @@ Book.destroy_all
 50.times do
   Book.create(
     title: Faker::Book.title,
-    author: Faker::Book.author,
     genre: Faker::Book.genre,
     classification: Book.classifications.sample,
-    catagory: ['Fiction', 'NonFication'].sample,
+    catagory: ['Fiction', 'Non Fiction'].sample,
     year: rand(1900..2018))
 end

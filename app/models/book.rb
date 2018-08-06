@@ -1,16 +1,15 @@
 class Book < ApplicationRecord
   def self.search(search)
     if search
-      where(query_string,"%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%","%#{search}%" )
+      where(query_string,"%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
     else
-      all
+      Book.all
     end
   end
 
   def self.query_string
     result = ''
     result += 'title LIKE ? OR '
-    result += 'author LIKE ? OR '
     result += 'genre LIKE ? OR '
     result += 'classification LIKE ? OR '
     result += 'catagory LIKE ?'

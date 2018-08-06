@@ -1,13 +1,17 @@
-
-  <%= @book.title %>
-
-  <%= @book.author %>
-
-  <%= @book.genre %>
-  <%= @book.classification %>
-  <%= @book.catagory %>
-  <%= @book.year %>
+<strong>Title</strong><br />
+  <%= @book.title %><br />
+<strong>Sub_title</strong><br />
+  <%= @book.sub_title %><br />
+<strong>Genre</strong><br />
+  <%= @book.genre %><br />
+<strong>Classification</strong><br />
+  <%= @book.classification %><br />
+<strong>Catagory</strong><br />
+  <%= @book.catagory %><br />
+<strong>Year</strong><br />
+  <%= @book.year %><br />
 
 
 <%= link_to 'Edit', edit_book_path(@book)%> 
+<%= link_to 'Destroy', book_path(@book), method: :delete, data: {confirm: 'Are you sure you want to delete?'} %> 
 <%= link_to 'Back', root_path %>
